@@ -55,20 +55,23 @@ console.log(cvs.width);
 
 let newcoin = [];
 
+console.log(Math.floor(Math.random() * Math.floor(cvs.height)))
+
 newcoin[0] = {
-    x: cvs.width + 50,
-    y: Math.floor(Math.random() * cvs.height)
+    x: cvs.width - 50,
+    y: 300,
+    create: true
 }
 
 //bird position
 
 let cooX = 30;
 let cooY = 20;
-let grav = 3;
+let grav = 4;
 
-//bird size
+//bird and coin size
 
-let birdWidthHeight = 50;
+let birdCoinSize = 50;
 
 //score
 
@@ -78,29 +81,27 @@ function draw() {
     //clear
     ctx.clearRect(0, 0, cvs.width, cvs.height);
 
-    ctx.drawImage(bird, cooX, cooY, birdWidthHeight, birdWidthHeight);
-    // ctx.drawImage(bird, cooX, cooY, 33, 71, 154, 125, 21, 20, 200, 200);
-    // ctx.drawImage(bird, cooX, cooY);
-    // ctx.drawImage(coin, cooX, cooY);
+    ctx.drawImage(bird, cooX, cooY, birdCoinSize, birdCoinSize);
 
     for (let i = 0; i < newcoin.length; i++) {
         //draw coin
 
-        ctx.drawImage(coin, newcoin[i].x, newcoin[i].y);
+        ctx.drawImage(coin, newcoin[i].x, newcoin[i].y, birdCoinSize, birdCoinSize);
         newcoin[i].x -= 1.5;
 
-        setTimeout()
-
-        if (newcoin[i].x === 125) {
+        // setTimeout()
+        if (newcoin[i].x <= 100 && newcoin[i].create === true) {
             newcoin.push({
-                x: cvs.width + 50,
+                x: cvs.width - 20,
                 y: Math.floor(Math.random() * cvs.height),
+                create: true
             })
+            newcoin[i].create = false;
         }
 
         // tracking touch with coin
-        if (newcoin[i].x < cooX + bird.width  && newcoin[i].x + coin.width  > cooX &&
-            newcoin[i].y < cooY + bird.height && newcoin[i].y + coin.height > cooY) {
+        if (newcoin[i].x < cooX + birdCoinSize  && newcoin[i].x + birdCoinSize  > cooX &&
+            newcoin[i].y < cooY + birdCoinSize && newcoin[i].y + birdCoinSize > cooY) {
             newcoin.splice(newcoin[i], 1);
             score++;
         }
@@ -150,6 +151,6 @@ function draw() {
 }
 
 bird.src = 'img/character_.png';
-coin.src = 'img/flappy_bird_bird.png';
+coin.src = 'img/coin.png';
 pipeUp.src = 'img/element.png';
 pipeBottom.src = 'img/element.png';
