@@ -17,5 +17,5 @@ What technologies I've used:
 
 Desktop preview:
 
-  ![alt text](https://github.com/ssqool/egypt-bird/blob/master/main.png)
+  ![alt text](https://github.com/ssqool/egypt-bird/blob/main/main.png)
 
