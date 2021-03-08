@@ -1,6 +1,6 @@
 # egypt-bird
 
-Multi-page internet store.
+Egypt Flappy-bird.
 
 The site based on Flappy bird game. In this project, I made a responsive design and added coins. Made pipes and coins randomly appear.
 
