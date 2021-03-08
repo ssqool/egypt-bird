@@ -37,11 +37,9 @@ function moveUp() {
 }
 
 // padding beetwen tubes
-
 let gap = 200;
 
 // creating blocks
-
 let pipe = [];
 
 pipe[0] = {
@@ -49,13 +47,9 @@ pipe[0] = {
     y: -400,
     create: true
 }
-console.log(cvs.width);
 
 //creating coin
-
 let newcoin = [];
-
-console.log(Math.floor(Math.random() * Math.floor(cvs.height)))
 
 newcoin[0] = {
     x: cvs.width - 50,
@@ -64,17 +58,14 @@ newcoin[0] = {
 }
 
 //bird position
-
 let cooX = 30;
 let cooY = 20;
 let grav = 4;
 
 //bird and coin size
-
 let birdCoinSize = 50;
 
 //score
-
 let score = 0;
 
 function draw() {
@@ -84,8 +75,8 @@ function draw() {
     ctx.drawImage(bird, cooX, cooY, birdCoinSize, birdCoinSize);
 
     for (let i = 0; i < newcoin.length; i++) {
-        //draw coin
 
+        //draw coin
         ctx.drawImage(coin, newcoin[i].x, newcoin[i].y, birdCoinSize, birdCoinSize);
         newcoin[i].x -= 1.5;
 
@@ -108,6 +99,7 @@ function draw() {
     }
 
     for (let i = 0; i < pipe.length; i++) {
+
         //draw pipes
         ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
@@ -115,7 +107,6 @@ function draw() {
         pipe[i].x -= 1.5;
 
         //adding new tubes
-
         if (pipe[i].x <= 100 && pipe[i].create === true) {
             pipe.push({
                 x: cvs.width / 2,
@@ -125,10 +116,6 @@ function draw() {
             pipe[i].create = false;
             setTimeout(()=> {score++}, 1000) ;
         }
-
-        // if (pipe[i].x === 5) {
-        //     score++;
-        // }
 
         //tracking touch with barrier
         if (cooX + 50 >= pipe[i].x

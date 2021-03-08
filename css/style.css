@@ -6,11 +6,7 @@
 
 #background {
     position: absolute;
-    background: url("../img/bg.png") no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: black;
+    background: fixed url("../img/bg.png") center center no-repeat;
     height: 100vh;
     width: 100vw;
     z-index: -2;
@@ -27,4 +23,3 @@
     color: white;
     font-size: 40px;
 }
-
