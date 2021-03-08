@@ -15,7 +15,7 @@ What technologies I've used:
 - Canvas
 
 
-Desktop preview:
+Mobile preview:
 
   ![alt text](https://github.com/ssqool/egypt-bird/blob/main/main.png)
 
